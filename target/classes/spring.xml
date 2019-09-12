@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+        <bean id="userDao" class="com.jt.dao.UserDao"></bean>
+        <bean id="userService" class="com.jt.service.impl.UserServiceImpl">
+            <property name="dao" ref="userDao"></property>
+        </bean>
+        <bean id="userController" class="com.jt.controller.UserController">
+            <constructor-arg name="userservice" ref="userService"></constructor-arg>
+        </bean>
+</beans>
